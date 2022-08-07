@@ -1,0 +1,19 @@
+{
+  "name": "esbuild",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "esbuild src/main.tsx --splitting --servedir=www --outdir=www --bundle --format=esm"
+  },
+  "dependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "18.0.15",
+    "@types/react-dom": "18.0.6",
+    "esbuild": "0.14.50",
+    "typescript": "4.7.4"
+  }
+}

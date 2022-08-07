@@ -1,0 +1,15 @@
+{
+  "name": "tree-shake-code-split",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "code-split/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build --parallel"
+  },
+  "devDependencies": {
+    "turbo": "1.3.1"
+  }
+}
