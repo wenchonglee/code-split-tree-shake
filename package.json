@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "workspaces": [
-    "code-split/*"
+    "code-split/*",
+    "tree-shake/*"
   ],
   "scripts": {
     "dev": "turbo run dev --parallel",

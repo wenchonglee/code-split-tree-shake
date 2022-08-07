@@ -1,0 +1,17 @@
+{
+  "name": "rollup",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "build": "rollup src/index.js --file dist/bundle.js --format es"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "rollup": "2.77.2"
+  },
+  "main": "dist/bundle.js",
+  "module": "dist/bundle.js",
+  "files": [
+    "dist"
+  ]
+}
