@@ -1,5 +1,11 @@
 ## Tree Shaking
 
+## Note
+
+The `consumer` project requires the `rollup` project to have built itself, because `consumer` imports `rollup`.  
+Therefore, when you run `yarn build` or `yarn dev` for the first time, it will have thrown an error because `consumer` hasn't been built yet.  
+If you still encounter an error stating that `local-dep` cannot be found, then run `yarn upgrade local-dep` to make sure the dependency is installed correctly
+
 ### TODO
 
 ### Setup
