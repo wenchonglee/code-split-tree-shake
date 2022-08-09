@@ -1,19 +1,29 @@
-## Code Splitting
+# Code Splitting
 
-### React
+Code splitting is the act of splitting your bundle into multiple files.
+Code is only fetched on demand (or lazy loaded).
 
-To run dev instances:
+For example, if your app uses complex graph libraries that are 3MB in size, you can choose to lazy load pages that contain these graphs.
+Unless your clients visit these pages, they will not fetch the code that uses these libraries.
+[More info in MDN Docs](https://developer.mozilla.org/en-US/docs/Glossary/Code_splitting)
 
-```
+## React
+
+To do this in React is very straight-forward.
+The demo here uses the same code with 3 different toolchains to demonstrate that it is "bundler agnostic".
+
+- [`create-react-app`](/code-split/cra/src/App.tsx)
+- [`esbuild`](/code-split/esbuild/src/App.tsx)
+- [`vite`](/code-split/vite/src/App.tsx)
+
+You can run these instances to take a look for yourself with:
+
+```bash
 yarn
-yarn dev
+yarn dev-cs
 ```
 
-Given the same piece of React code, all 3 bundlers were able to code split for you
-
-- `create-react-app`
-- `esbuild`
-- `vite`
+### The code itself
 
 All you have to do is follow the instructions found on React's [website](https://reactjs.org/docs/code-splitting.html).  
 TL;DR:
@@ -37,21 +47,36 @@ function MyComponent() {
 }
 ```
 
-### Code splitting in plain javascript
+## Code splitting in plain javascript
 
-Look into the project [`webpack`](/code-split/webpack/), this demonstrates how code splitting works without React.  
-To view product of this demo, run `yarn build` specifically in this folder, followed by opening the `dist/index.html` in a browser.
+> Being a React developer, the info above should be all you need to know.  
+> This section demonstrates how code splitting works outside the scope of React.
 
-There are 2 js files in `src`:
+This section can be found in the [`webpack` directory](/code-split/webpack/).
 
-- `foobar.js` exports a constant string
-- `index.js` has a function that imports `foobar.js`
-  ```js
-  const { default: foobarString } = await import("./foobar");
-  ```
+### Running the demo
+
+To view product of this demo, run `yarn build` specifically in this folder, followed by opening the `/code-split/webpack/dist/index.html` in a browser.
+
+### The code
+
+This project has the least amount of code required for this demonstration.
+
+- `package.json` only has the `webpack` dependency as the chosen bundler
+- `webpack.config.js` contains the instructions on which file to bundle
+- `src`  
+  There are 2 js files in `src`:
+
+  - `foobar.js` exports a constant string
+  - `index.js` has a function that imports `foobar.js`
+    ```js
+    const { default: foobarString } = await import("./foobar");
+    ```
+
+### How it works
 
 Webpack and other modern tools parses `import` statements to enable code splitting.  
-`index` is our "entry point", and it contains instructions on where to fetch `foobar` if it is required.
+With `index.js` as our "entry point", it contains instructions on where to fetch `foobar.js` if it is required.
 
 > Note:
 >

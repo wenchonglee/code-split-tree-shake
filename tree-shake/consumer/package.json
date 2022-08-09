@@ -9,7 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "local-dep": "file:../rollup",
+    "sample-library": "file:../sample-library",
+    "sample-library2": "file:../sample-library",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },

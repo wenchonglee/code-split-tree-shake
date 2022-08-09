@@ -7,8 +7,10 @@
     "tree-shake/*"
   ],
   "scripts": {
-    "dev": "turbo run dev --parallel",
-    "build": "turbo run build --parallel"
+    "dev-cs": "turbo run dev --parallel --filter=./code-split/*",
+    "dev-ts": "turbo run dev --parallel --filter=./tree-shake/*",
+    "build-cs": "turbo run build --parallel --filter=./code-split/*",
+    "build-ts": "turbo run build --parallel --filter=./tree-shake/*"
   },
   "devDependencies": {
     "turbo": "1.3.1"

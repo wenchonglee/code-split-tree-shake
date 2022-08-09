@@ -1,11 +1,11 @@
 //@ts-nocheck
-import { add, SUPER_LONG_STRING } from "local-dep";
+import fullImport from "sample-library";
+import { short_string } from "sample-library2";
 
 const App = () => {
   return (
     <div>
-      {add(1, 2)}
-      {SUPER_LONG_STRING}
+      {short_string} - {fullImport.short_string}
     </div>
   );
 };
